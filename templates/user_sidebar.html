@@ -1,0 +1,197 @@
+{% extends 'common_css_js_links.html' %}
+{% block user_sidebar %}
+
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="app-brand demo">
+        <a href="{% url 'user'  %}" class="app-brand-link">
+            <span class="app-brand-logo demo">
+                <img src="/static/landing_page/images/logo2.png" alt="">
+            </span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: none;">O.C.R.S</span>
+        </a>
+
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+        </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+        <!-- Dashboard -->
+        <li class="menu-item">
+            <a href="{% url 'user' %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Home</div>
+            </a>
+        </li>
+        <!-- Cards -->
+        <li class="menu-item">
+            <a href="{% url 'user_manage_profile' %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Manage Profile</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{% url 'create_complaint' %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="Basic">Create Complaint</div>
+            </a>
+        </li>
+        <!-- Cards -->
+        <li class="menu-item">
+            <a href="{% url 'user_view_complaints'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-copy"></i>
+                <div data-i18n="Layouts">View Complaint Status</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{% url 'user_view_firs'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">View FIR Status</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{% url 'user_view_csrs'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <div data-i18n="Layouts">View CSR Status</div>
+            </a>
+        </li>
+        
+       
+        <li class="menu-item">
+            <a href="{% url 'view_complaints_for_feedbacks'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Layouts">Feedbacks</div>
+            </a>
+        </li>
+        
+        <li class="menu-item">
+            <a href="{% url 'user_announcements'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Layouts">Announcements</div>
+            </a>
+        </li>
+
+
+    </ul>
+</aside>
+
+<script>
+    let Home = document.querySelectorAll('.menu-item')[0];
+    let Manage_Profile = document.querySelectorAll('.menu-item')[1];
+    let Create_Complaint = document.querySelectorAll('.menu-item')[2];
+    let View_complaint = document.querySelectorAll('.menu-item')[3];
+    let View_fir = document.querySelectorAll('.menu-item')[4];
+    let View_csr = document.querySelectorAll('.menu-item')[5];
+    let feedback = document.querySelectorAll('.menu-item')[6];
+    let announcement = document.querySelectorAll('.menu-item')[7];
+
+
+    if (window.location.href.includes("create_complaint")) {
+        Create_Complaint.classList.add('active');
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        View_complaint.classList.remove('active');
+        View_fir.classList.remove('active');
+        View_csr.classList.remove('active');
+        feedback.classList.remove('active');
+        announcement.classList.remove('active');
+    }
+
+    else if (window.location.href.includes("http://127.0.0.1:8000/user/") ) {
+        Create_Complaint.classList.remove('active');
+        Home.classList.add('active');
+        Manage_Profile.classList.remove('active');
+        View_complaint.classList.remove('active');
+        View_fir.classList.remove('active');
+        View_csr.classList.remove('active');
+        feedback.classList.remove('active');
+        announcement.classList.remove('active');
+
+    }
+  
+
+    else if (window.location.href.includes("user_manage_profile")) {
+        Create_Complaint.classList.remove('active');
+        Home.classList.remove('active');
+        Manage_Profile.classList.add('active');
+        View_complaint.classList.remove('active');
+        View_fir.classList.remove('active');
+        View_csr.classList.remove('active');
+        feedback.classList.remove('active');
+        announcement.classList.remove('active');
+
+    } 
+
+
+    
+    else if (window.location.href.includes("user_view_complaints") || window.location.href.includes("user_view_complaint")) {
+        Create_Complaint.classList.remove('active');
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        View_complaint.classList.add('active');
+        View_fir.classList.remove('active');
+        View_csr.classList.remove('active');
+        feedback.classList.remove('active');
+        announcement.classList.remove('active');
+
+    }
+    else if (window.location.href.includes("user_view_firs") || window.location.href.includes("user_view_fir")) {
+        Create_Complaint.classList.remove('active');
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        View_complaint.classList.remove('active');
+        View_fir.classList.add('active');
+        View_csr.classList.remove('active');
+        feedback.classList.remove('active');
+        announcement.classList.remove('active');
+
+    }
+    else if (window.location.href.includes("user_view_csrs") || window.location.href.includes("user_view_csr")) {
+        Create_Complaint.classList.remove('active');
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        View_complaint.classList.remove('active');
+        View_fir.classList.remove('active');
+        View_csr.classList.add('active');
+        feedback.classList.remove('active');
+        announcement.classList.remove('active');
+
+    }
+
+    else if (window.location.href.includes("view_complaints_for_feedbacks") || window.location.href.includes("feedback") ) {
+        Create_Complaint.classList.remove('active');
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        View_complaint.classList.remove('active');
+        View_fir.classList.remove('active');
+        View_csr.classList.remove('active');
+        feedback.classList.add('active');
+        announcement.classList.remove('active');
+
+    }
+
+
+
+    else if (window.location.href.includes("user_announcements") || window.location.href.includes("user_announcement") ) {
+        Create_Complaint.classList.remove('active');
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        View_complaint.classList.remove('active');
+        View_fir.classList.remove('active');
+        View_csr.classList.remove('active');
+        feedback.classList.remove('active');
+        announcement.classList.add('active');
+
+    }
+    
+
+    
+    
+</script>
+
+
+
+
+{% endblock %}

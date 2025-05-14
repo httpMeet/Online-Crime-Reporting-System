@@ -1,0 +1,65 @@
+{% extends 'user_sidebar.html' %}
+
+{% block user_announcement %}
+
+    <!-- -----------------------------------  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- -----------------------------------  -->
+<style>
+    .white-placeholder::placeholder {
+        color: rgb(116, 114, 114);
+    }
+</style>
+
+
+
+
+
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+
+            <div class="card-body">
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Title</label>
+                        <input type="text" name="name" value="{{announcement.title}}"
+                            placeholder="{{announcement.title}}" class="form-control white-placeholder"
+                            id="basic-default-fullname" readonly />
+                    </div>
+
+                
+                    <!-- ======================================================================================================== -->
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Description </label>
+                        <textarea name="address" id="address" class="white-placeholder form-control" readonly cols="40"
+                            rows="5" value="{{announcement.description}}"
+                            placeholder="{{announcement.description}}"></textarea>
+                    </div>
+
+                    {% if has_image %}
+                    <label class="form-label" for="basic-default-company">Image</label>
+                    <div class="d-flex align-items-start align-items-sm-center gap-4 mb-3">
+                        <img src="{{ MEDIA_URL }}{{ announcement.image.url }}" class="d-block rounded" height="100"
+                            width="100" id="uploadedAvatar" />
+                        <div class="button-wrapper">
+                            <a href="{{ MEDIA_URL }}{{ announcement.image.url }}" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                <span class="d-none d-sm-block">Open Image in new tab</span>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                   
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

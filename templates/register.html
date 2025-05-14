@@ -1,0 +1,147 @@
+{% extends 'login_register_base.html' %}
+
+{% block title %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>  
+
+
+<title>Register Page</title>
+
+{% endblock %}
+
+
+{% block heading %}
+
+<h4 class="mb-2 text-center">Registration Page</h4>
+
+{% endblock %}
+
+{% block form %}
+
+
+
+<form id="formAuthentication" class="mb-3" action="" method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username"
+            autofocus />
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
+    </div>
+
+    <div class="mb-3">
+        <label for="Phone Number" class="form-label">Phone Number</label>
+        <input type="number" class="form-control" id="Phone Number" name="Phone_Number" placeholder="Enter your Phone Number" />
+    </div>
+
+    <div class="mb-3">
+        <label for="fname" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your First Name" />
+    </div>
+
+    <div class="mb-3">
+        <label for="lname" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="lname" name="lname" placeholder="Enter your Last Name" />
+    </div>
+
+    <div class="mb-3 form-password-toggle">
+        <label class="form-label" for="password">Password</label>
+        <div class="input-group input-group-merge">
+            <input type="password" id="password" class="form-control" name="password"
+                placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                aria-describedby="password" />
+            <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+        </div>
+    </div>
+
+    <div class="mb-3">
+        GENDER:
+        <br>
+        <label for="idgender" class="form-label"></label>
+        <input type="radio" name="Yourgender" id="male" value="Male">Male
+        <input type="radio" name="Yourgender" id="female" value="Female">Female
+    </div>
+
+
+    <div class="mb-3">
+        <label for="aadhaarno" class="form-label">AADHAAR NUMBER: </label>
+        <input type="number" class="form-control" name="aadhaarno" id="aadhaarno" placeholder="Enter your AadhaarNumber" min="000000000000" max="999999999999">
+    </div>
+
+
+
+    <div class="mb-4">
+        <label for="exampleFormControlSelect1" class="form-label">State or UT</label>
+        <select class="form-select" id="complainant_state" name="complainant_state" aria-label="State">
+            <option selected>Choose State or UT</option>
+            {% for state in states %}
+            <option value="{{ state.state_name }}">{{ state.state_name }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#complainant_state').change(function () {
+                var state_name = $(this).val();
+                $.ajax({
+                    url: '/get_districts_register/',
+                    data: {
+                        'complainant_state': state_name
+                    },
+                    dataType: 'json',
+                    success: function (data) {
+                        var districts = data.districts;
+                        var district_options = '';
+                        for (var i = 0; i < districts.length; i++) {
+                            district_options += '<option value="' + districts[i].district_name + '">' + districts[i].district_name + '</option>';
+                        }
+                        $('#complainant_district').html(district_options);
+                    }
+                });
+            });
+        });
+
+    </script>
+    <div class="mb-4">
+        <label for="complainant_district" class="form-label">District</label>
+        <select class="form-select" id="complainant_district" name="complainant_district">
+            <option value="">Choose District</option>
+        </select>
+    </div>
+
+
+
+
+    <div class="mb-3">
+        <label for="address" class="form-label">Address: </label>
+        <textarea name="address" id="address" class="form-control" cols="40" rows="5" placeholder="Enter your Address" ></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="pincode" class="form-label">PIN CODE: </label>
+        <input type="pincode" class="form-control" name="pincode" id="pinbcode" placeholder="Enter your Pin code/Zip code" min="000000" max="999999">
+    </div>
+
+    <div class="mb-3">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+            <label class="form-check-label" for="terms-conditions">
+                I agree that i will use this appliaction for legal purposes only
+            </label>
+        </div>
+    </div>
+    <button class="btn btn-primary d-grid w-100">Sign up</button>
+</form>
+<p class="text-center">
+    <span>Already have an acoount?</span>
+    <a href="{% url 'user_login' %}">
+        <span>Login</span>
+    </a>
+</p>
+
+{% endblock %}

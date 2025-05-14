@@ -1,0 +1,27 @@
+{% extends 'user_sidebar.html' %}
+{% block feedbacks %}
+
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+
+            <div class="card-body">
+                <form action="" method="POST" >
+                    {% csrf_token %}
+
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Feedback</label>
+                        <textarea id="basic-default-message" name="Feedback" class="form-control"
+                            placeholder="Provide Feedback" required></textarea>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

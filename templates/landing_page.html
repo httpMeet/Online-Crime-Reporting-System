@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/7cf1aca7fb.js" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Free mobile app HTML landing page template to help you build a great online presence for your app which will convert visitors into users">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+    <meta property="og:site_name" content="" /> <!-- website name -->
+    <meta property="og:site" content="" /> <!-- website link -->
+    <meta property="og:title" content="" /> <!-- title shown in the actual shared post -->
+    <meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+    <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+    <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+    <meta property="og:type" content="article" />
+
+    <title>O.C.R.S</title>
+
+    <!-- Styles -->
+    <style>
+        .toast {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            z-index: 9999;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="/static/landing_page/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/landing_page/css/fontawesome-all.css" rel="stylesheet">
+    <link href="/static/landing_page/css/swiper.css" rel="stylesheet">
+    <link href="/static/landing_page/css/magnific-popup.css" rel="stylesheet">
+    <link href="/static/landing_page/css/styles.css" rel="stylesheet">
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/static/landing_page/images/favicon.png">
+</head>
+
+<body data-spy="scroll" data-target=".fixed-top">
+
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+        <!-- Text Logo - Use this if you don't have a graphic logo -->
+        <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Leno</a> -->
+
+        <!-- Image Logo -->
+        <a class="navbar-brand logo-i">
+            <h2>O.C.R.S</h2>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></span>
+            <span class="navbar-toggler-awesome fas fa-times"></span>
+        </button>
+        <!-- end of mobile menu toggle button -->
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#header">HOME <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#features">FEATURES</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#preview">GUIDE</a>
+                </li>
+
+                <!-- Dropdown Menu for login -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle page-scroll" href="#details" id="navbarDropdown" role="button"
+                        aria-haspopup="true" aria-expanded="false">ACCOUNT</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'user_login' %}"><span class="item-text">LOG IN</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        <a class="dropdown-item" href="{% url 'register' %}"><span class="item-text">REGISTER</span></a>
+                    </div>
+                </li>
+                <!-- end of dropdown menu -->
+                
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="#contact">CONTACT</a>
+                </li>
+            </ul>
+            <span class="nav-item social-icons">
+                <span class="fa-stack">
+                    <a href="https://www.facebook.com/profile.php?id=100092349764823" target="_blank">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                    </a>
+                </span>
+                <span class="fa-stack">
+                    <a href="https://twitter.com/OCRSIndia" target="_blank">
+                        <i class="fas fa-circle fa-stack-2x"></i>
+                        <i class="fab fa-twitter fa-stack-1x"></i>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </nav> <!-- end of navbar -->
+    <!-- end of navbar -->
+
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="text-container">
+                            <h1>ONLINE CRIME REPORTING SYSTEM <br><span id="js-rotating">FAST,EASY-TO-USE,
+                                    USER-FRIENDLY</span></h1>
+                            <p class="p-large">A crime reporting system enables people to report crimes efficiently,
+                                ensuring prompt law enforcement action.</p>
+                            <a class="btn-solid-lg page-scroll" href="{% url 'user_login' %}"></i>Login</a>
+                            <a class="btn-solid-lg page-scroll" href="{% url 'register' %}">Register</a>
+                        </div>
+                    </div> <!-- end of col -->
+                    <div class="col-lg-6">
+                        <div class="image-container">
+                            <img class="img-fluid" src="/static/landing_page/images/logo.png" alt="alternative">
+                        </div> <!-- end of image-container -->
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+
+    <!-- Testimonials -->
+    <div class="slider-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Card Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="/static/landing_page/images/testimonial.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <p class="testimonial-text"> Commissioner of Police, Delhi Police</p>
+                                            <p class="testimonial-author">S.N. Shrivastava</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="/static/landing_page/images/testimonial.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <p class="testimonial-text"> Director General of Police, Telangana Police
+                                            </p>
+                                            <p class="testimonial-author">Rakesh Asthana</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="/static/landing_page/images/testimonial.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <p class="testimonial-text">Additional Director General of Police, Criminal
+                                                Investigation Department, West Bengal Police</p>
+                                            <p class="testimonial-author">Rajeev Kumar</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="/static/landing_page/images/testimonial.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <p class="testimonial-text">Station House Officer (SHO), Kondli Police
+                                                Station, Delhi Police</p>
+                                            <p class="testimonial-author">Priyanka Yadav </p>
+                                        </div>
+                                    </div>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="/static/landing_page/images/testimonial.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <p class="testimonial-text"> Station House Officer (SHO), Sector 5 Police
+                                                Station, Haryana Police</p>
+                                            <p class="testimonial-author">Rajesh Kumar</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="/static/landing_page/images/testimonial.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <p class="testimonial-text">Police Incharge, Bapu Nagar Police Station,
+                                                Rajasthan Police.</p>
+                                            <p class="testimonial-author">Ram Kumar</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+
+                            </div> <!-- end of swiper-wrapper -->
+
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <!-- end of add arrows -->
+
+                        </div> <!-- end of swiper-container -->
+                    </div> <!-- end of slider-container -->
+                    <!-- end of card slider -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider-1 -->
+    <!-- end of testimonials -->
+
+
+    <!-- Features -->
+    <div id="features" class="tabs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>FEATURES</h2>
+
+                </div> <!-- end of row -->
+                <div class="row">
+
+                    <!-- Tabs Links -->
+                    <ul class="nav nav-tabs" id="lenoTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="nav-tab-1" data-toggle="tab" href="#tab-1" role="tab"
+                                aria-controls="tab-1" aria-selected="true"><i class="fas fa-cog"></i>CONFIGURING</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="nav-tab-2" data-toggle="tab" href="#tab-2" role="tab"
+                                aria-controls="tab-2" aria-selected="false"><i
+                                    class="fas fa-binoculars"></i>TRACKING</a>
+                        </li>
+                    </ul>
+                    <!-- end of tabs links -->
+
+
+                    <!-- Tabs Content-->
+                    <div class="tab-content" id="lenoTabsContent">
+
+                        <!-- Tab -->
+                        <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="tab-1">
+                            <div class="container">
+                                <div class="row">
+
+                                    <!-- Icon Cards Pane -->
+                                    <div class="col-lg-4">
+                                        <div class="card left-pane first">
+                                            <div class="card-body">
+                                                <div class="text-wrapper">
+                                                    <h4 class="card-title">User Registration</h4>
+                                                    <p>Verifying the user's identity and creating login credentials for
+                                                        future access.</p>
+                                                </div>
+                                                <div class="card-icon">
+                                                    <i class="far fa-compass"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card left-pane">
+                                            <div class="card-body">
+                                                <div class="text-wrapper">
+                                                    <h4 class="card-title">Incident Reporting Form</h4>
+                                                    <p>Allow for the upload of any relevant documents or images related
+                                                        to the incident.</p>
+                                                </div>
+                                                <div class="card-icon">
+                                                    <i class="far fa-file-code"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card left-pane">
+                                            <div class="card-body">
+                                                <div class="text-wrapper">
+                                                    <h4 class="card-title">Integration with Emergency Services</h4>
+                                                    <p>Allows for seamless integration with emergency services such as
+                                                        100, enabling faster response times to emergency incidents.</p>
+                                                </div>
+                                                <div class="card-icon">
+                                                    <i class="far fa-gem"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of icon cards pane -->
+
+                                    <!-- Image Pane -->
+                                    <div class="col-lg-4">
+                                        <img class="img-fluid" src="/static/landing_page/images/features-iphone-1.png"
+                                            alt="alternative">
+                                    </div>
+                                    <!-- end of image pane -->
+
+                                    <!-- Icon Cards Pane -->
+                                    <div class="col-lg-4">
+                                        <div class="card right-pane first">
+                                            <div class="card-body">
+                                                <div class="card-icon">
+                                                    <i class="far fa-calendar-check"></i>
+                                                </div>
+                                                <div class="text-wrapper">
+                                                    <h4 class="card-title">Real-Time Data Analytics</h4>
+                                                    <p>Provides real-time data analysis to detect and respond to
+                                                        emerging crime trends and patterns.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card right-pane">
+                                            <div class="card-body">
+                                                <div class="card-icon">
+                                                    <i class="far fa-bookmark"></i>
+                                                </div>
+                                                <div class="text-wrapper">
+                                                    <h4 class="card-title">Multiple Language Support</h4>
+                                                    <p>Allows users to report incidents in their native language,
+                                                        increasing accessibility and usability.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card right-pane">
+                                            <div class="card-body">
+                                                <div class="card-icon">
+                                                    <i class="fas fa-cube"></i>
+                                                </div>
+                                                <div class="text-wrapper">
+                                                    <h4 class="card-title">Secure Document Storage</h4>
+                                                    <p>Stores all documents and data related to reported incidents
+                                                        securely and confidentially.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end of icon cards pane -->
+
+                                </div> <!-- end of row -->
+                            </div> <!-- end of container -->
+                        </div> <!-- end of tab-pane -->
+                        <!-- end of tab -->
+
+                        <!-- Tab -->
+                        <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="tab-2">
+                            <div class="container">
+                                <div class="row">
+
+                                    <!-- Image Pane -->
+                                    <div class="col-md-4">
+                                        <img class="img-fluid" src="/static/landing_page/images/features-iphone-2.png"
+                                            alt="alternative">
+                                    </div>
+                                    <!-- end of image pane -->
+
+                                    <!-- Text And Icon Cards Area -->
+                                    <div class="col-md-8">
+                                        <div class="text-area">
+                                            <h3>Incident Tracking</h3>
+                                            <p>This feature enables users to track the status of their incident report,
+                                                from submission to resolution. Users can receive updates on the progress
+                                                of the investigation and the outcome of the case.</p>
+                                        </div> <!-- end of text-area -->
+
+                                        <div class="icon-cards-area">
+                                            <div class="card">
+                                                <div class="card-icon">
+                                                    <i class="fas fa-cube"></i>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Secure Document Storage</h4>
+                                                    <p>Stores all documents and data related to reported incidents
+                                                        securely and confidentially.</p>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-icon">
+                                                    <i class="far fa-bookmark"></i>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Task Management </h4>
+                                                    <p>Manages tasks and assigns responsibilities to investigators and
+                                                        law enforcement officials for each reported case.</p>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-icon">
+                                                    <i class="far fa-calendar-check"></i>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Status Updates</h4>
+                                                    <p>Provides regular status updates to users and administrators on
+                                                        the progress of their reported cases.</p>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <div class="card-icon">
+                                                    <i class="far fa-file-code"></i>
+                                                </div>
+                                                <div class="card-body">
+                                                    <h4 class="card-title">Case Tracking</h4>
+                                                    <p> Tracks the progress of reported cases from submission to
+                                                        resolution.</p>
+                                                </div>
+                                            </div>
+                                        </div> <!-- end of icon cards area -->
+                                    </div> <!-- end of col-md-8 -->
+                                    <!-- end of text and icon cards area -->
+
+                                </div> <!-- end of row -->
+                            </div> <!-- end of container -->
+                        </div> <!-- end of tab-pane -->
+                        <!-- end of tab -->
+
+                        <!-- Tab -->
+
+                    </div> <!-- end of row -->
+                </div> <!-- end of container -->
+            </div><!-- end of tab-pane -->
+            <!-- end of tab -->
+
+        </div> <!-- end of tab-content -->
+        <!-- end of tabs content -->
+
+    </div> <!-- end of row -->
+    </div> <!-- end of container -->
+    </div> <!-- end of tabs -->
+    <!-- end of features -->
+
+
+    <!-- Video -->
+    <div id="preview" class="basic-1">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>GUIDE</h2>
+                    <div class="p-heading p-large">An online crime reporting system guide provides step-by-step
+                        instructions on how to use the system to report crimes.</div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Video Preview -->
+                    <div class="image-container">
+                        <div class="video-wrapper">
+                            <a class="popup-youtube" href="https://www.youtube.com/watch?v=fLCjQJCekTs"
+                                data-effect="fadeIn">
+                                <img class="img-fluid" src="/static/landing_page/images/video-frame.jpg" alt="alternative">
+                                <span class="video-play-button">
+                                    <span></span>
+                                </span>
+                            </a>
+                        </div> <!-- end of video-wrapper -->
+                    </div> <!-- end of image-container -->
+                    <!-- end of video preview -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-1 -->
+    <!-- end of video -->
+
+
+
+    <!-- Download -->
+    <div class="basic-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-xl-5">
+                    <div class="text-container">
+                        <h2>Download <span class="blue">OCRS</span></h2>
+                        <p class="p-large">Our online crime reporting system app will soon be available on Android and
+                            iOS platforms, bringing easy and efficient reporting of incidents to your fingertips.</p>
+                        <a class="btn-solid-lg" href="#ocrs"><i class="fab fa-apple"></i>APP STORE</a>
+                        <a class="btn-solid-lg" href="#ocrs"><i class="fab fa-google-play"></i>PLAY STORE</a>
+                    </div> <!-- end of text-container -->
+                </div> <!-- end of col -->
+                <div class="col-lg-6 col-xl-7">
+                    <div class="image-container">
+                        <img class="img-fluid" src="/static/landing_page/images/download.png" alt="alternative">
+                    </div> <!-- end of img-container -->
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-4 -->
+    <!-- end of download -->
+
+
+    <!-- Statistics -->
+    <div class="counter">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Counter -->
+                    <div id="counter">
+                        <div class="cell">
+                            <div class="counter-value number-count" data-count="231">1</div>
+                            <p class="counter-info">Happy Users</p>
+                        </div>
+                        <div class="cell">
+                            <div class="counter-value number-count" data-count="85">1</div>
+                            <p class="counter-info">Issues Solved</p>
+                        </div>
+                        <div class="cell">
+                            <div class="counter-value number-count" data-count="59">1</div>
+                            <p class="counter-info">Good Reviews</p>
+                        </div>
+                        <div class="cell">
+                            <div class="counter-value number-count" data-count="127">1</div>
+                            <p class="counter-info">Case Studies</p>
+                        </div>
+                    </div>
+                    <!-- end of counter -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of counter -->
+    <!-- end of statistics -->
+
+
+    <!-- Contact -->
+    <div id="contact" class="form">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>CONTACT</h2>
+                    <ul class="list-unstyled li-space-lg">
+                        <li class="address">Don't hesitate to give us a call, or just use the contact form below.</li>
+                        <li><i class="fas fa-map-marker-alt"></i>1 OCRS, Ahmedabad, Gujarat ,India -383415</li>
+                        <li><i class="fas fa-phone"></i><a class="blue" href="tel:100">100</a></li>
+                        <li><i class="fas fa-envelope"></i><a class="blue"
+                                href="mailto:ocrsindia@gmail.com">ocrsindia@gmail.com</a></li>
+                    </ul>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+
+                    <!-- Contact Form -->
+                    <form id="contactForm" data-toggle="validator" data-focus="false" onSubmit="sendEmail()">
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="cname" required>
+                            <label class="label-control" for="cname">Name</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control-input" id="cemail" required>
+                            <label class="label-control" for="cemail">Email</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control-textarea" id="cmessage" required></textarea>
+                            <label class="label-control" for="cmessage">Your message</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control-input" id="ccontact" required>
+                            <label class="label-control" for="cname">Contact Number</label>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="form-control-submit-button">SUBMIT MESSAGE</button>
+                        </div>
+                        <div class="form-message">
+                            <div id="cmsgSubmit" class="h3 text-center hidden"></div>
+                        </div>
+                    </form>                                       
+                    <!-- end of contact form -->
+
+
+                    <script src="https://smtpjs.com/v3/smtp.js"></script>
+                    <script>
+
+                        function sendEmail() {
+                            let name = document.getElementById("cname").value;
+                            let email = document.getElementById("cemail").value;
+                            let message = document.getElementById("cmessage").value;
+                            let contact = document.getElementById("ccontact").value;
+                            let finalmessage = `Name : ${name} <br>  Email : ${email} <br>  Message : ${message} <br> Contact Number : ${contact} <br>`;
+                            
+                            // Check if all fields are filled
+                            if (name !== '' && email !== '' && message !== '' && contact !== '') {
+                                Email.send({
+                                    SecureToken : "325016fe-105a-4077-af4f-0399711bbc3f",
+                                    To : 'ocrsindia@gmail.com',
+                                    From : "ocrsindia@gmail.com",
+                                    Subject : "O.C.R.S Contact form",
+                                    Body : finalmessage
+                                }).then(
+                                    message => alert(message)
+                                );
+                            } else {
+                                alert("Please fill in all fields before submitting the form.");
+                            }
+                        }
+                        </script>
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of form -->
+    <!-- end of contact -->
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-col">
+                        <h4>About OCRS</h4>
+                        <p>A crime reporting system enables people to report crimes efficiently, ensuring prompt law
+                            enforcement action.</p>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col middle">
+                        <h4>Important Links</h4>
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <!--<div class="media-body">Read our <a class="turquoise" href="">Terms & Conditions</a>, <a
+                                        class="turquoise" href="">Privacy Policy</a></div> -->
+                                <div class="media-body">If you do not know how to file a complaint, then definitely watch the  <a class="turquoise" href="https://www.youtube.com/watch?v=fLCjQJCekTs" target="_blank">guidance video</a>.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div> <!-- end of col -->
+                <div class="col-md-4">
+                    <div class="footer-col last">
+                        <h4>Social Media</h4>
+                        <span class="fa-stack">
+                            <a href="https://www.facebook.com/profile.php?id=100092349764823" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://twitter.com/OCRSIndia" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x"></i>
+                            </a>
+                        </span>
+                         <!-- <span class="fa-stack">
+                            <a href="#your-link">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-google-plus-g fa-stack-1x"></i>
+                            </a> -->
+                        </span> 
+                        <span class="fa-stack">
+                            <a href="https://www.instagram.com/ocrsindia/" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+                        <span class="fa-stack">
+                            <a href="https://www.linkedin.com/in/ocrsindia/" target="_blank">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin-in fa-stack-1x"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of footer -->
+    <!-- end of footer -->
+
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                </div> <!-- end of col -->
+            </div> <!-- enf of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of copyright -->
+    <!-- end of copyright -->
+
+
+    <!-- Scripts -->
+    <script src="/static/landing_page/js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+    <script src="/static/landing_page/js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+    <script src="/static/landing_page/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+    <script src="/static/landing_page/js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+    <script src="/static/landing_page/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+    <script src="/static/landing_page/js/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+    <script src="/static/landing_page/js/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
+    <script src="/static/landing_page/js/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+    <script src="/static/landing_page/js/scripts.js"></script> <!-- Custom scripts -->
+</body>
+
+</html>

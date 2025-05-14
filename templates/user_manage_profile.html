@@ -1,0 +1,188 @@
+{% extends 'user_sidebar.html' %}
+
+{% block user_manage_profile %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<div class="card mb-4">
+    <h5 class="card-header">Profile Details</h5>
+    <!-- Account -->
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="card-body">
+            <div class="d-flex align-items-start align-items-sm-center gap-4">
+                <img src="{{ MEDIA_URL }}{{ user.profile_image.url }}" alt="user-avatar" class="d-block rounded"
+                    height="100" width="100" id="uploadedAvatar" />
+                <div class="button-wrapper">
+                    <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                        <span class="d-none d-sm-block">Upload new photo</span>
+                        <i class="bx bx-upload d-block d-sm-none"></i>
+                        <input type="file" id="upload" name="profile_image"  class="account-file-input"  hidden />
+                    </label>
+                
+                </div>
+            </div>
+        </div>
+        <hr class="my-0" />
+        <div class="card-body">
+            <div class="row">
+                <div class="mb-3 col-md-6">
+                    <label for="firstName" class="form-label">UserName</label>
+                    <input disabled class="form-control" type="text" id="username" name="username" value="{{user.username}}"
+                        autofocus />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input class="form-control" type="text" id="email" name="email" value="{{user.email}}"
+                        placeholder="{{user.email}}" />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input class="form-control" type="text" id="firstName" name="firstName" value="{{user.first_name}}"
+                        autofocus />
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input class="form-control" type="text" name="lastName" id="lastName" value="{{user.last_name}}" />
+                </div>
+
+                <!-- <div class="mb-3 col-md-6">
+            <label for="organization" class="form-label">Change Password</label>
+            <input
+              type="text"
+              class="form-control"
+              id="organization"
+              name="organization"
+              value="ThemeSelection"
+            />
+          </div> -->
+
+                <div class="mb-3 col-md-6">
+                    <label for="lastName" class="form-label">Gender</label> <br>
+                    <div class="form-check form-check-inline ">
+                        <input class="form-check-input" type="radio" {% if user.gender.lower == "male" %} checked {% endif %} name="gender" id="male" value="male" />
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" {% if user.gender.lower == "female" %} checked {% endif %} name="gender" id="female" value="female" />
+                        <label class="form-check-label" for="inlineRadio2">Female</label>
+                    </div>
+
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="organization" class="form-label">Aadhaar Number</label>
+                    <input type="text" class="form-control" id="aadhaarno" name="aadhaarno"
+                        value="{{user.aadhaarno}}" />
+                </div>
+
+                <div class="mb-3 col-md-6">
+                    <label class="form-label" for="phoneNumber">Phone Number</label>
+                    <div class="input-group input-group-merge">
+                        <span class="input-group-text">India (+91)</span>
+                        <input type="text" id="phoneNumber" name="phoneNumber" class="form-control"
+                            value="{{user.Phone_Number}}" />
+                    </div>
+                </div>
+                <div class="mb-3 col-md-6">
+                    <label for="zipCode" class="form-label">PIN Code</label>
+                    <input type="text" class="form-control" id="pinCode" name="pinCode" maxlength="6"
+                        value="{{user.pincode}}" />
+                </div>
+
+
+                <div class="mb-3 col-md-6">
+                    <label for="zipCode" class="form-label">State or UT</label>
+                    <select class="form-select" name="complainant_state" id="complaint_state" 
+                        aria-label="State" required>
+                        {% for state in states %}
+                        <option value="{{ state.state_name }}">{{ state.state_name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+
+                <script>
+                    let selectElement = document.getElementById('complaint_state');
+
+                    // get the user's state value
+                    let userState = "{{user.state}}"; // replace with actual user state value
+
+                    // loop through all options and find the matching one
+                    for (let i = 0; i < selectElement.options.length; i++) {
+                        let option = selectElement.options[i];
+                        if (option.value === userState) {
+                            // set the matching option as selected
+                            option.selected = true;
+                            break;
+                        }
+                    }
+                </script>
+
+                <div class="mb-3 col-md-6">
+                    <label for="zipCode" class="form-label">District</label>
+                    <select class="form-select" name="complainant_district" id="complaint_district"
+                        name="complaint_district" aria-label="District" required>
+                        {% for district in districts %}
+                        <option value="{{ district.district_name }}">{{ district.district_name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#complaint_state').change(function () {
+                            var state_name = $(this).val();
+                            $.ajax({
+                                url: '/get_district/',
+                                data: {
+                                    'complaint_state': state_name
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    var districts = data.districts;
+                                    var district_options = '';
+                                    for (var i = 0; i < districts.length; i++) {
+                                        district_options += '<option value="' + districts[i].district_name + '">' + districts[i].district_name + '</option>';
+                                    }
+                                    $('#complaint_district').html(district_options);
+                                    getPolicestation();
+
+                                    console.log("called")
+                                }
+                            });
+                        });
+                    });
+
+                </script>
+
+
+
+                <div class="mb-3 col-md-6">
+                    <label for="organization" class="form-label">Address</label>
+                    <textarea class="form-control" name="address" id="exampleFormControlTextarea1"
+                        rows="3">{{user.address}}</textarea>
+                </div>
+
+            </div>
+            <div class="mt-2">
+                <button type="submit" class="btn btn-primary me-2">Save changes</button>
+            </div>
+
+            <input type="hidden" value="!changed" name="image_changed">
+
+        </div>
+    </form>
+    <!-- /Account -->
+</div>
+
+<script>
+    document.getElementById('upload').addEventListener('change', function() {
+        document.getElementsByName('image_changed')[0].value = 'changed';
+    });
+</script>
+
+
+{% endblock %}

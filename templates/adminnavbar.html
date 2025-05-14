@@ -1,0 +1,243 @@
+{% extends 'common_css_js_links.html' %}
+{% block content_body %}
+
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="app-brand demo">
+        <a href="index.html" class="app-brand-link">
+            <span class="app-brand-logo demo">
+                <img src="/static/landing_page/images/logo2.png" alt="">
+            </span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: none;">O.C.R.S</span>
+        </a>
+
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+        </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+        <!-- Dashboard -->
+        <li class="menu-item active">
+            <a href="index.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Home</div>
+            </a>
+        </li>
+        <!-- Cards -->
+        <li class="menu-item">
+            <a href="cards-basic.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Manage Profile</div>
+            </a>
+        </li>
+        <!-- Cards -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="Layouts">Police Station</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="layouts-without-menu.html" class="menu-link">
+                        <div data-i18n="Without menu">Add Station</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Without navbar">Manage Station</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="Layouts">Police Users</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="layouts-without-menu.html" class="menu-link">
+                        <div data-i18n="Without menu">Add Police</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Without navbar">Manage Police</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="Layouts">Crime Category</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="layouts-without-menu.html" class="menu-link">
+                        <div data-i18n="Without menu">Create Category</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Without navbar">Manage Category</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="Layouts">Announcements</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="layouts-without-menu.html" class="menu-link">
+                        <div data-i18n="Without menu">Create Announcements</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Without navbar">Manage Announcements</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-box"></i>
+                <div data-i18n="Layouts">Feedbacks</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Without navbar">Manage Feedbacks</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <!-- Cards -->
+        <li class="menu-item">
+            <a href="cards-basic.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-copy"></i>
+                <div data-i18n="Basic">View Complaint Status</div>
+            </a>
+        </li>
+        <!-- Layouts -->
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">View Reports</div>
+            </a>
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="layouts-without-menu.html" class="menu-link">
+                        <div data-i18n="Without menu">View FIR</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="layouts-without-navbar.html" class="menu-link">
+                        <div data-i18n="Without navbar">View CSR</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="menu-header small text-uppercase">
+            <span class="menu-header-text">Others</span>
+        </li>
+        <li class="menu-item">
+            <!-- Cards -->
+            <a href="cards-basic.html" class="menu-link">
+                <i class='bx bxs-notification'></i>
+                <div data-i18n="Basic">&nbsp;&nbsp;&nbsp;View Announcements</div>
+            </a>
+
+        <li class="menu-item">
+            <a href="cards-basic.html" class="menu-link">
+                <i class='bx bx-mail-send'></i>
+                <!-- <i class="menu-icon tf-icons bx bx-collection"></i> -->
+                <div data-i18n="Basic">&nbsp;&nbsp;&nbsp; Notifications</div>
+            </a>
+            <a href="cards-basic.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <!-- <i class="menu-icon tf-icons bx bx-collection"></i> -->
+                <div data-i18n="Basic">LoggedIn Devices</div>
+            </a>
+
+
+
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div data-i18n="Account Settings">Feedback</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="pages-account-settings-account.html" class="menu-link">
+                        <div data-i18n="Account">View Feedback</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="pages-account-settings-notifications.html" class="menu-link">
+                        <div data-i18n="Notifications">Give Feedback</div>
+                    </a>
+                </li>
+                <!-- <li class="menu-item">
+    <a href="pages-account-settings-connections.html" class="menu-link">
+      <div data-i18n="Connections">Connections</div>
+    </a>
+  </li> -->
+            </ul>
+        </li>
+        <li class="menu-item">
+            <!-- Cards -->
+
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="auth-login-basic.html" class="menu-link" target="_blank">
+                        <div data-i18n="Basic">Login</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="auth-register-basic.html" class="menu-link" target="_blank">
+                        <div data-i18n="Basic">Register</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
+                        <div data-i18n="Basic">Forgot Password</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <div data-i18n="Misc">Misc</div>
+            </a>
+            <ul class="menu-sub">
+                <li class="menu-item">
+                    <a href="pages-misc-error.html" class="menu-link">
+                        <div data-i18n="Error">-------</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a href="pages-misc-under-maintenance.html" class="menu-link">
+                        <div data-i18n="Under Maintenance">---------</div>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+
+{% endblock %}

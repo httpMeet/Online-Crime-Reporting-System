@@ -1,0 +1,238 @@
+{% extends 'user_sidebar.html' %}
+{% block user_view_csr %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- -----------------------------------  -->
+<style>
+    .white-placeholder::placeholder {
+        color: rgb(116, 114, 114);
+    }
+</style>
+
+
+
+
+
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+
+            <div class="card-body">
+
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Complainant Full Name
+                        </label>
+                        <input type="text" name="name" value="{{csr.complainant_name}}"
+                            placeholder="{{csr.complainant_name}}" class="form-control white-placeholder"
+                            id="basic-default-fullname" readonly />
+                    </div>
+
+                    <label class="mb-2 form-label" for="basic-default-fullname" style="margin-bottom: -4px;">Complainant
+                        Gender</label><br>
+                    <input type="text" value="{{csr.complainant_gender}}" placeholder="{{csr.complainant_gender}}"
+                        name="gender" class="white-placeholder mb-3 form-control" id="basic-default-fullname"
+                        readonly />
+
+
+
+                    <!-- ======================================================================================================== -->
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Complainant Address </label>
+                        <textarea name="address" id="address" class="white-placeholder form-control" readonly cols="40"
+                            rows="5" value="{{csr.complainant_address}}"
+                            placeholder="{{csr.complainant_address}}"></textarea>
+                    </div>
+
+
+
+                    <div class="mb-4">
+                        <label for="exampleFormControlSelect1" class=" form-label">Complainant State or UT</label>
+                        <input readonly name="complainant_state_name" type="text" value="{{csr.complainant_state_name}}"
+                            placeholder="{{csr.complainant_state_name}}" class="white-placeholder form-control">
+
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label for="complainant_district" class="form-label">Complainant District</label>
+                        <input readonly type="text" name="complainant_district_name"
+                            value="{{csr.complainant_district_name}}" placeholder="{{csr.complainant_district_name}}"
+                            class="white-placeholder form-control">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="pincode" class="form-label">Complainant PIN CODE </label>
+                        <input readonly type="pincode" class="white-placeholder form-control" name="pincode"
+                            id="pinbcode" value="{{csr.complainant_pin_code}}"
+                            placeholder="{{csr.complainant_pin_code}}" min="000000" max="999999">
+                    </div>
+                    <!-- ========================================================================================================================== -->
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">Complainant Phone Number</label>
+                        <input readonly type="text" name="contact_no" id="basic-default-phone"
+                            class="white-placeholder form-control phone-mask" value="{{csr.complainant_contact_no}}"
+                            placeholder="{{csr.complainant_contact_no}}" />
+                    </div>
+                    <div class="mb-3 mt-1">
+                        <label class="form-label" for="basic-default-email">Complainant Email</label>
+                        <div class="input-group input-group-merge">
+                            <input readonly type="text" name="email" id="basic-default-email"
+                                class="white-placeholder form-control" value="{{csr.complainant_email}}"
+                                placeholder="{{csr.complainant_email}}" aria-describedby="basic-default-email2" />
+                        </div>
+                    </div>
+
+                    <div class="mb-3 ">
+                        <label for="html5-date-input" class="form-label">Complainant Date Of Birth</label>
+                        <input readonly value="{{csr.complainant_dob}}" placeholder="{{csr.complainant_dob}}"
+                            class="white-placeholder form-control" name="dob" type="text" id="html5-date-input" />
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label for="exampleFormControlSelect1" class="form-label">Crime Category / Complaint
+                            Type</label>
+                        <input readonly name="crime_category" value="{{csr.crime_category}}"
+                            placeholder="{{csr.crime_category}}" type="text" class="white-placeholder form-control">
+
+                    </div>
+
+                    <div id="other_crime_category" class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Other Crime Category /
+                            Complaint Type
+                        </label>
+                        <input readonly type="text" value="{{csr.other_crime_category}}"
+                            placeholder="{{csr.other_crime_category}}" name="other_crime_category"
+                            class="white-placeholder form-control" id="basic-default-fullname" />
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label for="exampleFormControlSelect1" class="form-label">Complaint State or UT</label>
+                        <input readonly type="text" name="state_name" value="{{csr.state_name}}"
+                            placeholder="{{csr.state_name}}" class="white-placeholder form-control">
+
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label for="complaint_district" class="form-label">Complaint District</label>
+                        <input readonly value="{{csr.district_name}}" name="district_name"
+                            placeholder="{{csr.district_name}}" type="text" class="white-placeholder form-control">
+
+                    </div>
+
+
+                    <div class="mb-4">
+                        <label for="exampleFormControlSelect1" class="form-label">Complaint Police Station</label>
+                        <input readonly value="{{csr.station_name}}" name="station_name"
+                            placeholder="{{csr.station_name}}" type="text" class="white-placeholder form-control">
+
+                    </div>
+
+
+
+
+
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Subject</label>
+                        <input type="text" readonly name="subject" class="white-placeholder form-control"
+                            id="basic-default-company" value="{{csr.subject}}" placeholder="{{csr.subject}}" />
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label class="form-label" id="detailed_description" for="basic-default-message">NCR Detailed
+                            Description</label>
+                        <textarea readonly id="basic-default-message" name="detailed_description"
+                            class="white-placeholder form-control" value="{{csr.ncr_detailed_description}}"
+                            placeholder="{{csr.ncr_detailed_description}}"></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Reasons for delay in reporting by the
+                            complainant/informant</label>
+                        <textarea readonly id="basic-default-message" name="delay_in_complaining"
+                            class="white-placeholder form-control" value="{{csr.delay_reason}}"
+                            placeholder="{{csr.delay_reason}}"></textarea>
+                    </div>
+
+
+                    <div class="mb-3 row">
+                        <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Date and Time of
+                            Occurence</label>
+                        <div class="col-md-10">
+                            <input readonly value="{{csr.datetime_of_occurence}}"
+                                placeholder="{{csr.datetime_of_occurence}}" class="white-placeholder form-control"
+                                name="date_time_of_occurence" type="text" id="html5-datetime-local-input" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Place of Occurence</label>
+                        <input type="text" value="{{csr.place_of_occurence}}" placeholder="{{csr.place_of_occurence}}"
+                            readonly name="place_of_occurence" class="white-placeholder form-control"
+                            id="basic-default-company" />
+                    </div>
+
+                    {% if has_image %}
+                    <label class="form-label" for="basic-default-company">Evidence image</label>
+                    <div class="d-flex align-items-start align-items-sm-center gap-4 mb-3">
+                        <img src="{{ MEDIA_URL }}{{ csr.evidence_image.url }}" class="d-block rounded" height="100"
+                            width="100" id="uploadedAvatar" />
+                        <div class="button-wrapper">
+                            <a href="{{ MEDIA_URL }}{{ csr.evidence_image.url }}" target="_blank"
+                                rel="noopener noreferrer" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                <span class="d-none d-sm-block">Open Image in new tab</span>
+                            </a>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="mb-3 ">
+                        <label for="html5-date-input" class="form-label">Reporting Date & Time</label>
+                        <input readonly value="{{csr.reporting_date_time}}" placeholder="{{csr.reporting_date_time}}"
+                            class="white-placeholder form-control" name="dob" type="text" id="html5-date-input" />
+                    </div>
+
+                    <hr size="4">
+
+                    <div class="mb-3 csr_hide">
+                        <label class="form-label" for="basic-default-company">C.S.R NUMBER / G.D NUMBER</label>
+                        <input type="text" readonly name="csr_no"  class="white-placeholder form-control" id="basic-default-company"
+                            placeholder="{{csr.csr_no}}" />
+                    </div>
+                    
+
+                    <!-- <hr size="2" color="#333" width="50%" align="center"> -->
+                    <hr size="4">
+
+
+                    <div class="mb-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Status</label>
+                        <input type="text" readonly name="csr_no"  class="white-placeholder form-control" id="basic-default-company"
+                            placeholder="{{csr.status}}" />
+                    </div>
+                    <div class="mb-3 csr_hide" id="info_by_si">
+                        <label class="form-label" for="basic-default-message">Info By Station Incharge</label>
+                        <textarea readonly id="basic-default-message" name="info_by_incharge" class="white-placeholder form-control"
+                            placeholder="{{csr.info_by_station_incharge}}"></textarea>
+                    </div>
+
+
+
+                    <input type="hidden" name="csr_id" value="{{csr_id}}">
+
+
+                    <br>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,190 @@
+{% extends 'common_css_js_links.html' %}
+{% block police_sidebar %}
+
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="app-brand demo">
+        <a href="{%url 'police' %}" class="app-brand-link">
+            <span class="app-brand-logo demo">
+                <img src="/static/landing_page/images/logo2.png" alt="">
+            </span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2" style="text-transform: none;">O.C.R.S</span>
+        </a>
+
+        <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+            <i class="bx bx-chevron-left bx-sm align-middle"></i>
+        </a>
+    </div>
+
+    <div class="menu-inner-shadow"></div>
+
+    <ul class="menu-inner py-1">
+        <!-- Dashboard -->
+        <li class="menu-item">
+            <a href="{%url 'police' %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Home</div>
+            </a>
+        </li>
+        <!-- Cards -->
+        <li class="menu-item">
+            <a href="{%url 'police_manage_profile' %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-collection"></i>
+                <div data-i18n="Basic">Manage Profile</div>
+            </a>
+        </li>
+        
+        <li class="menu-item">
+            <a href="{% url 'police_view_only_firs'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Basic">View FIR</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{% url 'police_view_only_csrs'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <div data-i18n="Basic">View CSR</div>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="{% url 'police_manage_firs'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Basic">Manage FIR</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{% url 'police_manage_csrs'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <div data-i18n="Basic">Manage CSR</div>
+            </a>
+        </li>
+
+        <li class="menu-item">
+            <a href="{% url 'police_announcements'  %}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-cube-alt"></i>
+                <div data-i18n="Basic">Announcements</div>
+            </a>
+        </li>
+
+        <!-- Cards -->
+    
+
+    </ul>
+</aside>
+
+<script>
+
+    let Home = document.querySelectorAll('.menu-item')[0];
+    let Manage_Profile = document.querySelectorAll('.menu-item')[1];
+    let view_only_fir = document.querySelectorAll('.menu-item')[2];
+    let view_only_csr = document.querySelectorAll('.menu-item')[3];
+    let manage_fir = document.querySelectorAll('.menu-item')[4];
+    let  manage_csr = document.querySelectorAll('.menu-item')[5];
+    let  announcements = document.querySelectorAll('.menu-item')[6];
+
+    var currentUrl = window.location.href;
+    
+
+
+    // Home
+
+
+    // Manage Profile
+    if (currentUrl.includes('police_manage_profile'))
+    {
+        Home.classList.remove('active');
+        Manage_Profile.classList.add('active');
+        view_only_fir.classList.remove('active');
+        view_only_csr.classList.remove('active');
+        manage_fir.classList.remove('active');
+        manage_csr.classList.remove('active');
+        announcements.classList.remove('active');
+
+    }
+
+    //view_only_fir
+    else if (currentUrl.includes('police_view_only_firs') || currentUrl.includes('police_view_only_fir'))
+    {
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        view_only_fir.classList.add('active');
+        view_only_csr.classList.remove('active');
+        manage_fir.classList.remove('active');
+        manage_csr.classList.remove('active');
+        announcements.classList.remove('active');
+
+    }
+
+    // view_only_csr
+    else if (currentUrl.includes('police_view_only_csrs') || currentUrl.includes('police_view_only_csr'))
+    {
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        view_only_fir.classList.remove('active');
+        view_only_csr.classList.add('active');
+        manage_fir.classList.remove('active');
+        manage_csr.classList.remove('active');
+        announcements.classList.remove('active');
+
+    }
+    
+    // manage csr
+    else if (currentUrl.includes('police_manage_csrs') || currentUrl.includes('police_manage_csr'))
+    {
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        view_only_fir.classList.remove('active');
+        view_only_csr.classList.remove('active');
+        manage_fir.classList.remove('active');
+        manage_csr.classList.add('active');
+        announcements.classList.remove('active');
+
+    }
+
+    // manage fir
+    else if (currentUrl.includes('police_manage_firs') || currentUrl.includes('police_manage_fir'))
+    {
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        view_only_fir.classList.remove('active');
+        view_only_csr.classList.remove('active');
+        manage_fir.classList.add('active');
+        manage_csr.classList.remove('active');
+        announcements.classList.remove('active');
+
+    }
+
+
+    else if (currentUrl.includes('police_announcements') || currentUrl.includes('police_announcement'))
+    {
+        Home.classList.remove('active');
+        Manage_Profile.classList.remove('active');
+        view_only_fir.classList.remove('active');
+        view_only_csr.classList.remove('active');
+        manage_fir.classList.remove('active');
+        manage_csr.classList.remove('active');
+        announcements.classList.add('active');
+
+    }
+
+    
+    
+    else if (currentUrl.includes('police'))
+    {
+        Home.classList.add('active');
+        Manage_Profile.classList.remove('active');
+        view_only_fir.classList.remove('active');
+        view_only_csr.classList.remove('active');
+        manage_fir.classList.remove('active');
+        manage_csr.classList.remove('active');
+        announcements.classList.remove('active');
+
+    }
+    
+    
+    
+
+</script>
+
+
+{% endblock %}

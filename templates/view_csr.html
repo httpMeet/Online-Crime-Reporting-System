@@ -1,0 +1,39 @@
+{% extends 'police_incharge_sidebar.html' %}
+
+{% block view_csr %}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- ------------market-----------------------  -->
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Complainant</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+
+                {% for csr in csrs %}
+                <tr>
+                    <td><a href="{% url 'manage_csr' csr.csr_id %}"><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ csr.subject }}</strong></a></td>
+                    <td>{{ csr.complainant_name }}</td>
+                    {% if csr.status == "Completed" %}
+                    <td><span class="badge bg-label-success me-1">Completed</span></td>
+                    {% else %}
+                    <td><span class="badge bg-label-primary me-1">CSR In Progress</span></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

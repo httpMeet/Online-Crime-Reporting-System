@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
+  data-assets-path="/static/common/" data-template="vertical-menu-template-free">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+  {% block title %}
+  {% endblock %}
+  <style>
+    /* Mobile Styles */
+    @media (max-width: 767px) {
+      .desktop-brand {
+        display: none;
+        /* Hide desktop brand on mobile */
+      }
+
+      .mobile-brand {
+        display: flex;
+        justify-content: start;
+        /* Align content to the left */
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    /* Desktop Styles */
+    @media (min-width: 768px) {
+      .mobile-brand {
+        display: none;
+        /* Hide mobile brand on desktop */
+      }
+
+      .desktop-brand {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  </style>
+  <meta name="description" content="" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/static/landing_page/images/logo.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons. Uncomment required icon fonts -->
+  <link rel="stylesheet" href="/static/common/vendor/fonts/boxicons.css" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="/static/common/vendor/css/core.css" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="/static/common/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="/static/common/css/demo.css" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="/static/common/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+  <!-- Page CSS -->
+  <!-- Page -->
+  <link rel="stylesheet" href="/static/common/vendor/css/pages/page-auth.css" />
+  <!-- Helpers -->
+  <script src="/static/common/vendor/js/helpers.js"></script>
+
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="/static/common/js/config.js"></script>
+</head>
+
+<body>
+  <!-- Content -->
+
+  <div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+      <div class="authentication-inner">
+        <!-- Register -->
+        <div class="card">
+          <div class="card-body">
+            <!-- Logo -->
+            <!-- Mobile View -->
+            <div class="mobile-brand">
+              <a href="{% url 'landing_page' %}" class="app-brand-link gap-2">
+                <span class="app-brand-logo demo">
+                  <img src="/static/landing_page/images/logo2.png" alt="">
+                </span>
+                <span id="mobile-title" class="app-brand-text demo text-body fw-bolder"
+                  style="font-size: 1.25rem; text-transform: none; display: block; line-height: 1.5; text-align: center;">
+                  Online Crime <br> &nbsp;&nbsp;&nbsp;&nbsp;Reporting System <br><br>
+                </span>
+              </a>
+            </div>
+
+            <!-- Desktop View -->
+            <div class="desktop-brand">
+              <a href="{% url 'landing_page' %}" class="app-brand-link gap-2">
+                <span class="app-brand-logo demo">
+                  <img src="/static/landing_page/images/logo2.png" alt="">
+                </span>
+                <span id="desktop-title" class="app-brand-text demo text-body fw-bolder"
+                  style="font-size: 1.25rem; text-transform: none;">Online Crime Reporting System</span>
+              </a>
+            </div>
+            <!-- /Logo -->
+
+
+            {% block heading %}
+            <div style="margin-top: 20px;"> <!-- Adjust the margin-top value as needed -->
+              <!-- Your heading content goes here -->
+            </div>
+            {% endblock %}
+
+            {% block form %}
+            {% endblock %}
+
+          </div>
+          <!-- Register Card -->
+        </div>
+      </div>
+    </div>
+
+    <!-- / Content -->
+
+
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="/static/common/vendor/libs/jquery/jquery.js"></script>
+    <script src="/static/common/vendor/libs/popper/popper.js"></script>
+    <script src="/static/common/vendor/js/bootstrap.js"></script>
+    <script src="/static/common/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <script src="/static/common/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="/static/common/js/main.js"></script>
+
+    <!-- Page JS -->
+
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+</body>
+
+</html>

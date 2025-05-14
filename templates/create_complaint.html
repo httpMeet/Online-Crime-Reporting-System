@@ -1,0 +1,233 @@
+{% extends 'user_sidebar.html' %}
+
+{% block complaint %}
+<!-- ------------market-----------------------  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- ------------market-----------------------  -->
+
+<div class="row">
+    <div class="col-xl">
+        <div class="card mb-4">
+
+            <div class="card-body">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Complainant Full Name  </label>
+                        <input type="text" name="name" class="form-control" id="basic-default-fullname" required autofocus/>
+                    </div>
+
+                    <label class="form-label" for="basic-default-fullname"
+                        style="margin-bottom: -4px;">Complainant Gender</label><br>
+                    <div class="form-check form-check-inline mb-3 mt-0">
+                        <input class="form-check-input" type="radio" name="gender" id="Male" value="Male" required/>
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline mt-3 mt-0">
+                        <input class="form-check-input" type="radio" name="gender" id="Female" value="Female" />
+                        <label class="form-check-label" for="inlineRadio1">Female</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-phone">Complainant Phone Number</label>
+                        <input type="text" name="contact_no" id="basic-default-phone" class="form-control phone-mask"
+                            placeholder="6587 998 941" required/>
+                    </div>
+                    
+
+                    <div class="mb-3 ">
+                        <label for="html5-date-input" class="form-label">Complainant Date Of Birth</label>
+                        <input class="form-control" name="dob" type="date" value="" id="html5-date-input" required/>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="exampleFormControlSelect1" class="form-label">Crime Category / Complaint Type</label>
+                        <select class="form-select" id="crime_category" name="crime_category"
+                            aria-label="Crime Category" required>
+                            <option disabled selected>Choose Crime Category / Complaint Type</option>
+                            {% for category in crime_categories %}
+                            <option value="{{ category.crime_category_name }}">{{ category.crime_category_name }}
+                            </option>
+                            {% endfor %}
+                            <!-- <option value="other">Other</option> -->
+                        </select>
+                    </div>
+
+                    <div id="other_crime_category" class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Other Crime Category / Complaint Type
+                        </label>
+                        <input type="text" name="other_crime_category" class="form-control" id="basic-default-fullname" />
+                    </div>
+
+
+                    <script>
+
+                        let crime_category_select_element = document.querySelector('#crime_category');
+                        let otherCategory = document.querySelector('#other_crime_category');
+                        otherCategory.style.display = 'none';
+
+                        crime_category_select_element.addEventListener('change', (event) => {
+                            if (event.target.value === 'Other') {
+                                otherCategory.style.display = 'block';
+                            }
+                            else {
+                                otherCategory.style.display = 'none';
+
+                            }
+                        });
+
+                        // let crime_category = document.getElementById('#crime_category');
+                        // if(crime_category.include('Other'))
+                        // {
+
+                        //     otherCategory.style.display = 'block';
+                        // }
+                        // else
+                        // {
+                        //     otherCategory.style.display = 'none';
+                        // }
+                    </script>
+
+
+                    <div class="mb-4">
+                        <label for="exampleFormControlSelect1" class="form-label">Complaint State or UT</label>
+                        <select class="form-select" name="complaint_state" id="complaint_state" name="complaint_state" aria-label="State" required>
+                            <option disabled selected>Choose State or UT where you want to file the complaint</option>
+                            {% for state in states %}
+                            <option value="{{ state.state_name }}">{{ state.state_name }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <script>
+                        $(document).ready(function () {
+                            $('#complaint_state').change(function () {
+                                var state_name = $(this).val();
+                                $.ajax({
+                                    url: '/get_district/',
+                                    data: {
+                                        'complaint_state': state_name
+                                    },
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        var districts = data.districts;
+                                        var district_options = '';
+                                        for (var i = 0; i < districts.length; i++) {
+                                            district_options += '<option value="' + districts[i].district_name + '">' + districts[i].district_name + '</option>';
+                                        }
+                                        $('#complaint_district').html(district_options);
+                                        getPolicestation();
+                                        
+                                        console.log("called")
+                                    }
+                                });
+                            });
+                        });
+
+                    </script>
+                    <div class="mb-4">
+                        <label for="complaint_district" class="form-label">Complaint District</label>
+                        <select class="form-select" id="complaint_district" name="complaint_district" required>
+                            <option value="" disabled selected>Choose District where you want to file the complaint</option>
+                        </select>
+                    </div>
+
+                    <script>
+                        $(document).ready(function () {
+                            $('#complaint_district').change(function () {
+                                getPolicestation();
+                                console.log("changed")
+                            });
+                        });
+
+
+
+                        function getPolicestation() 
+                        {
+                            var district_name = $('#complaint_district').val();
+                                $.ajax({
+                                    url: '/get_police_stations/',
+                                    data: {
+                                        'complaint_district': district_name
+                                    },
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        var police_stations = data.police_stations;
+                                        var police_stations_options = '';
+                                        for (var i = 0; i < police_stations.length; i++) {
+                                            police_stations_options += '<option value="' + police_stations[i].station_name + '">' + police_stations[i].station_name + '</option>';
+                                        }
+                                        $('#complaint_police_station').html(police_stations_options);
+                                    }
+                                });
+                         
+                        }
+                    </script>
+                    <div class="mb-4">
+                        <label for="exampleFormControlSelect1" class="form-label">Complaint Police Station</label>
+                        <select class="form-select" id="complaint_police_station" name="complaint_police_station"
+                            aria-label="State" required>
+                            <option disabled selected>Choose Police Station where you want to file the complaint</option>
+                        </select>
+                    </div>
+
+
+
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Subject</label>
+                        <input type="text" name="subject" class="form-control" id="basic-default-company"
+                            placeholder="Enter Complaint's Subject" required/>
+                    </div>
+
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Detailed Description</label>
+                        <textarea id="basic-default-message"  name="detailed_description" class="form-control"
+                            placeholder="Provide detailed description" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-message">Reasons for delay in reporting by the complainant/informant</label>
+                        <textarea id="basic-default-message" name="delay_in_complaining" class="form-control" placeholder="(OPTIONAL)"></textarea>
+                    </div>
+
+
+                    <div class="mb-3 row">
+                        <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Date and Time of
+                            Occurence</label>
+                        <div class="col-md-10">
+                            <input class="form-control" name="date_time_of_occurence" type="datetime-local" value="2021-06-18T12:30:00"
+                                id="html5-datetime-local-input" required/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-company">Place of Occurence</label>
+                        <input type="text" name="place_of_occurence" class="form-control" id="basic-default-company" required/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="formFile" class="form-label">Evidence images (optional)</label>
+                        <input class="form-control" name="evidence_image" type="file" id="formFile" />
+                    </div>
+
+                    
+                    <input type="hidden" name="complainant_address" value="{{ request.user.address }}">
+                    <input type="hidden" name="complainant_pin_code" value="{{ request.user.pincode }}">
+                    <input type="hidden" name="state_name" value="{{ request.user.state.state_name }}">
+                    <input type="hidden" name="state_id" value="{{ request.user.state.state_id }}">
+                    <input type="hidden" name="district_name" value="{{ request.user.district.district_name }}">
+                    <input type="hidden" name="district_id" value="{{ request.user.district.district_id }}">
+                    <input type="hidden" name="email" value="{{ request.user.email}}">
+            </div>
+
+
+            <div class="alert alert-primary" role="alert">Your address and email will be fetched from your user profile</div>
+            <button type="submit" class="btn btn-primary">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

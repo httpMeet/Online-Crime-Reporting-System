@@ -1,0 +1,44 @@
+{% extends 'police_incharge_sidebar.html' %}
+
+{% block police_incharge_view_complaint %}
+<!-- -----------------------------------  -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- -----------------------------------  -->
+
+<div class="card">
+    <div class="table-responsive text-nowrap">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th>Complainant</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+
+                {% for complaint in complaints %}
+                <tr>
+                    <td><a href="{% url 'manage_complaint' complaint.complaint_id %}"><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{ complaint.subject }}</strong></a></td>
+                    <td>{{ complaint.complainant_name }}</td>
+                    {% if complaint.status == "Pending" %}
+                        <td><span class="badge bg-label-primary me-1">Pending</span></td>
+                    {% elif complaint.status == "CSR is Filed" %}
+                        <td><span class="badge bg-label-info me-1">CSR is Filed</span></td>
+                        {% elif complaint.status == "FIR is Filed" %}
+                        <td><span class="badge bg-label-success me-1">FIR is Filed</span></td>
+                    {% else %}
+                        <td><span class="badge bg-label-warning me-1">Rejected</span></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock %}
