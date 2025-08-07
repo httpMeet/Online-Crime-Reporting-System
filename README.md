@@ -4,7 +4,7 @@ A web application built with Django designed to streamline how users report crim
 
 ## About
 
-This project enables users to file crime reports online—complete with options to submit evidence, track updates, and report anonymously if desired. It aims to bridge the gap between the public and law enforcement for faster, more accessible complaint logging :contentReference[oaicite:0]{index=0}.
+This project enables users to file crime reports online—complete with options to submit evidence, track updates, and report anonymously if desired. It aims to bridge the gap between the public and law enforcement for faster, more accessible complaint logging
 
 ---
 
@@ -44,3 +44,4 @@ cd Online-Crime-Reporting-System
 python3 -m venv venv
 source venv/bin/activate     # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
+
